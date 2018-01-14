@@ -9,4 +9,5 @@ class rectangle(Turtle):
 		self.shapesize(10)
 		self.color(color)
 		self.speed(speed)
+		
  
