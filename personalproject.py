@@ -1,6 +1,5 @@
 import turtle
 import time
-
 turtle.setup(700,700)
 
 

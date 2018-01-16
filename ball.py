@@ -2,10 +2,6 @@ from turtle import Turtle
 import turtle
 import random
 import math
-# RUNNING=True
-# SLEEP=0.0077
-# SCREEN_WIDTH=turtle.getcanvas().winfo_width()/2
-# SCREEN_HEIGHT=turtle.getcanvas().winfo_height()/2
 turtle.hideturtle()
 class Ball(Turtle):
 	def __init__(self,x,y,dx,dy,r,color):
@@ -60,8 +56,3 @@ class Ball(Turtle):
 		# 	return.self.xcor()-(0.5*self.width)
 		# if(A.top()>B.bottom()and A.right()>B.left()and A.bottom()<B.top()and A.left()>B.right()):
 
-# my_ball=Ball(100,0,5,5,10,"red")
-# my_ball.goto(10,10)
-		
-
-# turtle.mainloop()
