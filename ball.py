@@ -3,6 +3,7 @@ import turtle
 import random
 import math
 turtle.hideturtle()
+turtle.colormode(255)
 class Ball(Turtle):
 	def __init__(self,x,y,dx,dy,r,color):
 		Turtle.__init__(self)
@@ -23,12 +24,12 @@ class Ball(Turtle):
 		
 		current_x=self.xcor()
 		current_y=self.ycor()
-		new_x=current_x+dx
-		new_y=current_y+dy
-		right_side_ball=new_x+r
-		left_side_ball=new_x-r
-		top_side_ball=new_y+r
-		bottom_side_ball=new_y-r
+		new_x=current_x+self.dx
+		new_y=current_y+self.dy
+		right_side_ball=new_x+self.r
+		left_side_ball=new_x-self.r
+		top_side_ball=new_y+self.r
+		bottom_side_ball=new_y-self.r
 		self.goto(new_x,new_y)
 
 
