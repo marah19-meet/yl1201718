@@ -13,9 +13,9 @@ screenMaxX = screen.window_width()/2
 screenMaxY = screen.window_height()/2
 
 def mainMenu():
-    screen.bgcolor("black")
+    screen.bgcolor("light green")
     goto(0, screenMaxY - 200)
-    color('grey')
+    color('black')
     write("Agario", align="center", font=("Arial",50))
     goto(0, screenMaxY - 215)
     write("CoOl GaMe WiTh CoOl FeAtUrEs...YoU hAvE tO pLaY iT!", align="center")
@@ -34,6 +34,63 @@ def mainMenu():
     turtle.shape("oo.gif")
     turtle.goto(200,-200)
     turtle.stamp()
+    
+
+    turtle.register_shape("lol.gif")
+    turtle.shape("lol.gif")
+    turtle.goto(200, 200)
+    turtle.stamp()
+    turtle.register_shape("lol.gif")
+    turtle.shape("lol.gif")
+    turtle.goto(200,200)
+    turtle.stamp()
+
+
+    turtle.register_shape("kay.gif")
+    turtle.shape("kay.gif")
+    turtle.goto(-200, 200)
+    turtle.stamp()
+    turtle.register_shape("kay.gif")
+    turtle.shape("kay.gif")
+    turtle.goto(-200,200)
+    turtle.stamp()
+
+
+
+    turtle.register_shape("ror.gif")
+    turtle.shape("ror.gif")
+    turtle.goto(-200, -200)
+    turtle.stamp()
+    turtle.register_shape("ror.gif")
+    turtle.shape("ror.gif")
+    turtle.goto(-200,-200)
+    turtle.stamp()
+
+    
+
+
+
+    turtle.getscreen().clearscreen()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 xclick=0
 yclick = 0
 mainMenu()
