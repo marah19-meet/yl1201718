@@ -13,7 +13,7 @@ screenMaxX = screen.window_width()/2
 screenMaxY = screen.window_height()/2
 
 def mainMenu():
-    screen.bgcolor("light green")
+    screen.bgcolor("pink")
     goto(0, screenMaxY - 200)
     color('black')
     write("Agario", align="center", font=("Arial",50))
@@ -65,6 +65,9 @@ def mainMenu():
     turtle.shape("ror.gif")
     turtle.goto(-200,-200)
     turtle.stamp()
+
+    
+
 
     
 
