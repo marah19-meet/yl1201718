@@ -1,24 +1,19 @@
 from turtle import *
-SCORE=0
 import time
 import random
 from ball import Ball
 tracer(0)
+life_counter=3
 # hideturtle()
 RUNNING=True
 SLEEP=0.0077
 SCREEN_WIDTH=getcanvas().winfo_width()/2
 SCREEN_HEIGHT=getcanvas().winfo_height()/2
+register_shape("tm.gif")
 color("pink")
 # dot(1000)
 write("Agario", align="center", font=("Arial",150))
 
-score_turtle=clone()
-score_turtle.hideturtle
-score_turtle.pu()
-score_turtle.color("black")
-score_turtle.goto(-200, 200)
-score_turtle.write("Score: " + str(SCORE), font=("Arial", 16, "normal"))
 
 
 
@@ -30,7 +25,20 @@ MINIMUM_BALL_DX = -2
 MAXIMUM_BALL_DX = 2
 MINIMUM_BALL_DY = -2
 MAXIMUM_BALL_DY = 2	
-BALLS=[]	
+BALLS=[]
+#life
+showturtle()
+life= clone()
+life.shape("tm.gif")
+life.penup()
+life.goto(100,200)
+life2=life.clone()
+life2.goto(150,200)
+life3=life.clone()
+life3.goto(200,200)
+hideturtle()
+getscreen().update()
+
 for i in range(NUMBER_OF_BALLS):
 
 	x=random.randint(int(-SCREEN_WIDTH) + int(MAXIMUM_BALL_RADIUS), int(SCREEN_WIDTH) - int(MAXIMUM_BALL_RADIUS))
@@ -130,13 +138,14 @@ def check_all_balls_collision():
 
 
 
-def check_myball_collision(SCORE):
+def check_myball_collision():
 	for i in BALLS:
 		if collide(my_ball,i)==True:
 			radius1=my_ball.r
 			radius2=i.r
-			SCORE+=1
-			score_turtle.write("Score: " + str(SCORE), font=("Arial", 16, "normal"))
+			
+			
+			
 			if radius1<radius2:
 				return False
 			else:
@@ -172,58 +181,46 @@ def movearound(event):
 getcanvas().bind("<Motion>", movearound)
 getscreen().listen()
 
+def score():
+	
+	score_turtle=Turtle()
+	score_turtle.hideturtle()
+	score_turtle.clear()
+	score_turtle.pu()
+	score_turtle.color("black")
+	score_turtle.goto(-200, 200)
+	score_turtle.write("Score: " + str((my_ball.r - 20)+1), font=("Arial", 16, "normal"))
+	score_turtle.clear()
+	
+	
+
 while RUNNING == True:
 	if SCREEN_WIDTH != getcanvas().winfo_width()/2 or SCREEN_HEIGHT!=getcanvas().winfo_height()/2:
 		SCREEN_WIDTH = getcanvas().winfo_width()/2 
 		SCREEN_HEIGHT=getcanvas().winfo_height()/2
 	move_all_balls()
-	check_myball_collision(SCORE)
+	if check_myball_collision()==False:
+		if life_counter==3:
+			life.hideturtle()
+			life_counter-=1
+		if life_counter==2:
+			life2.hideturtle()
+			life_counter-=1
+		if life_counter==1:
+			life3.hideturtle()
+			life_counter-=1
+			RUNNING=False
 	check_all_balls_collision()
 	# my_ball.move(SCREEN_WIDTH,SCREEN_HEIGHT)
-	RUNNING = check_myball_collision(SCORE)
+	RUNNING = check_myball_collision()
 	update()
 	time.sleep(SLEEP)
+	score()
 
 
 if RUNNING==False:
-	clear()
+
 	write("GAME OVER",align="center",font=("Arial",50))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					
-
-
-						
-
-
-
-
-
-
-
 
 
 
